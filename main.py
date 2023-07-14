@@ -22,8 +22,6 @@ if 'responses' not in st.session_state:
 if 'requests' not in st.session_state:
     st.session_state['requests'] = []
 
-os.environ["openai_api_key"] == st.secrets["openai_api_key"]
-
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=st.secrets["openai_api_key"])
 
 if 'buffer_memory' not in st.session_state:
