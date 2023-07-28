@@ -17,7 +17,7 @@ import requests
 st.subheader("Chatbot with a Chemical Engineer")
 
 if 'responses' not in st.session_state:
-    st.session_state['responses'] = ["How can I help you in the digital twin field?"]
+    st.session_state['responses'] = ["How can I help you in the digital twin area?"]
 
 if 'requests' not in st.session_state:
     st.session_state['requests'] = []
@@ -50,7 +50,7 @@ textcontainer = st.container()
 with textcontainer:
     query = st.text_input("Query: ", key="input")
     if query:
-        with st.spinner("typing..."):
+        with st.spinner("generating..."):
             conversation_string = get_conversation_string()
             # st.code(conversation_string)
             refined_query = query_refiner(conversation_string, query)
@@ -67,6 +67,6 @@ with response_container:
         for i in range(len(st.session_state['responses'])):
             message(st.session_state['responses'][i],key=str(i))
             if i < len(st.session_state['requests']):
-                message(st.session_state["requests"][i], is_user=True,key=str(i)+ '_user')
+                message(st.session_state["requests"][i], is_user=True,avatar_style="big-ears-neutral",key=str(i)+ '_user')
 
           
